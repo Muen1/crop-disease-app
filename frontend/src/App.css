@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500&display=swap');
+
+:root {
+  --paper: #EDE6D6;
+  --paper-dark: #E2D9C4;
+  --ink: #1F2E1A;
+  --ink-soft: #4A5645;
+  --stamp: #C97F1E;
+  --disease: #8B3A2F;
+  --healthy: #3D6B35;
+  --line: #B8AD91;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); }
+
+.app {
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+h1 {
+  font-family: 'Zilla Slab', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0 0 8px;
+  line-height: 1.1;
+}
+
+.subtitle { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 32px; line-height: 1.5; }
+
+.upload-box {
+  border: 1.5px dashed var(--line);
+  border-radius: 4px;
+  padding: 32px 24px;
+  background: var(--paper-dark);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.upload-box.dragging { border-color: var(--stamp); background: #E8DFC8; }
+.upload-hint { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--ink-soft); margin: 0; }
+.preview { max-width: 100%; border-radius: 3px; border: 1px solid var(--line); }
+
+button {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 3px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+button:hover:not(:disabled) { background: var(--ink-soft); }
+button:disabled { background: var(--line); cursor: default; }
+
+.result {
+  margin-top: 28px;
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 2px dashed var(--line);
+  border-radius: 3px;
+  padding: 24px 24px 20px;
+}
+
+.result-label, .tip-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+.tip-label { margin-top: 16px; }
+
+.diagnosis { font-family: 'Zilla Slab', serif; font-weight: 700; font-size: 1.4rem; margin-bottom: 12px; }
+.diagnosis.healthy { color: var(--healthy); }
+.diagnosis.disease { color: var(--disease); }
+
+.stamp {
+  position: absolute; top: 18px; right: 20px;
+  border: 2px solid var(--stamp);
+  color: var(--stamp);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 50%;
+  transform: rotate(8deg);
+  text-align: center;
+  line-height: 1.1;
+}
+
+.tip-text { font-size: 0.95rem; line-height: 1.5; }
+.error-text { color: var(--disease); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; margin-top: 16px; }
